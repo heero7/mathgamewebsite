@@ -88,14 +88,14 @@ html {
     -ms-transition: all 0.2s;
 }
 
-.box:hover {
+.box:hover, #startreset:hover {
     background-color: purple;
-    color: white;ß
+    color: white;
     box-shadow: 0px 4px black;
 }
 
-.box:active {
-    box-shadow: 0px 0px;
+.box:active, #startrest:active {
+    box-shadow: 0px 0px black;
     top: 4px;
 }
 
@@ -104,5 +104,32 @@ html {
 }
 
 #startreset {
+    width: 85px;
+    height: 50px;
+    padding: 10px;
+    background-color: rgb(58, 173, 35);
+    border-radius: 3px;
+    margin: 0 auto;
+    box-shadow: 3px 3px black;
+    cursor: pointer;
+    text-align: center;
+    line-height: 55px;
+    position: relative;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+}
 
+#timeremaining {
+    width: 90px;
+    padding: 10px;
+    position: absolute;
+    top: 400px;
+    left: 390px;
+    background-color: rgb(136, 201, 15);
+    box-shadow: 2px 2px black;
+    border-radius: 2px;
+    display: none;
 }
