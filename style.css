@@ -23,3 +23,20 @@ html {
     box-shadow: 3px 3px ;
     position: absolute;
 }
+
+#correct {
+    position: absolute;
+    left: 240px;
+    background-color: green;
+    color: white;
+    padding: 11px;
+    display: none;
+}
+
+#wrong {
+    position: absolute;
+    left: 240px;
+    background-color: red;
+    padding: 11px;
+    display: none;
+}
