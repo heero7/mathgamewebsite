@@ -8,6 +8,7 @@ var timeDiv = document.getElementById('timeremaining');
 var time = document.getElementById('time');
 var score = document.getElementById('scorevalue');
 var timeInterval;
+var currentTime;
 startResetBtn.onclick = function hello(){
     if (isPlaying) {
          // reload the game
@@ -19,7 +20,7 @@ startResetBtn.onclick = function hello(){
         setScore();
         startTimer();
         // -- checks the state of the game for 60 seconds
-        gameState();
+        //gameState();
     }
 }
 
@@ -30,6 +31,8 @@ function startTimer() {
     timeInterval = setInterval(function() {
         t--;
         time.innerHTML = t;
+        currentTime = t;
+        gameState();
     }, 1000);
 }
 
@@ -38,7 +41,9 @@ function setScore() {
 }
 
 function gameState() {
-    alert(timeInterval);
+    if (currentTime > 0){
+        console.log('Time: ' + currentTime)
+    }
 }
 // if clicked on start or reset
     // if playing
