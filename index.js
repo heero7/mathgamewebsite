@@ -55,10 +55,6 @@ startResetBtn.addEventListener("click", function beginGame(){
         startResetBtn.innerHTML = resetTitle;
         setScore();
         questionsForGame = generateQuestions();
-        // choice1.onclick = validate(choice1);
-        // choice2.onclick = validate(choice2);
-        // choice3.onclick = validate(choice3);
-        // choice4.onclick = validate(choice4);
         startTimer();
         displayQuestion();
     }
@@ -94,17 +90,26 @@ function displayQuestion() {
 
 function validate(choice) {
     if (choice == currentAnswer) {
-        console.log('Correct!');
         incrementScoreDisplayCorrect();
         displayQuestion();
     } else {
-        console.log('Wrong');
+        displayWrong();
     }
 }
 
 function incrementScoreDisplayCorrect(){
     score += 1;
     scoreElement.innerHTML = score;
+
+    setInterval(function(){
+        document.getElementById('correct').style = 'block';
+    }, 3000);
+
+    //document.getElementById('correct').style = 'none';
+}
+
+function displayWrong() {
+
 }
 
 function displayChoices() {
@@ -181,27 +186,3 @@ function gameOver() {
         gameOverDiv.innerHTML = 'Game over, Score: ' + 
             scoreElement.innerHTML +'\nPress Reset Game to try again';
 }
-// if clicked on start or reset
-    // if playing
-        // reload page - aka reset the game
-    // if not playing - start the game
-        // set score to 0
-        // show countdown box
-        // reduce time by 1 every second
-            // if time left 
-                // continue
-            // if no time left
-                // game over
-                // change button text to reset
-                // generate new questions
-
-// if clicked on answer box
-    // if playing
-        // validate answer
-            // yes
-                // increment score + 1
-                // show correct box for 1 sec
-                // generate new question
-            // no
-                // decrement score - 1 (or do nothing)
-                // show try again box for 1 sec
