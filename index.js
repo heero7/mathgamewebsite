@@ -90,26 +90,43 @@ function displayQuestion() {
 
 function validate(choice) {
     if (choice == currentAnswer) {
-        incrementScoreDisplayCorrect();
+        score += 1;
+        scoreElement.innerHTML = score;
+        hide("wrong");
+        show("correct");
+        setTimeout(function(){
+            hide("correct");
+        },1000);
         displayQuestion();
     } else {
-        displayWrong();
+        hide("correct");
+        show("wrong");
+        setTimeout(function(){
+            hide("wrong");
+        },1000);
     }
 }
 
 function incrementScoreDisplayCorrect(){
-    score += 1;
-    scoreElement.innerHTML = score;
-
-    setInterval(function(){
-        document.getElementById('correct').style = 'block';
-    }, 3000);
-
+    
+    //hide("correct");
     //document.getElementById('correct').style = 'none';
 }
 
-function displayWrong() {
+function displayWrong(){
+    hide("correct");
+    show("wrong");
+    setTimeout(function(){
+        show("wrong");
+    },1000);
+}
 
+function show(id){
+    document.getElementById(id).style.display = "block";
+}
+
+function hide(id) {
+    document.getElementById(id).style.display = "none";
 }
 
 function displayChoices() {
